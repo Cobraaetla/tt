@@ -1,0 +1,19 @@
+local KickOnJoin = false;
+
+local IDs = {3514270068,159663965,1116997404,944391790,862631826,1500531645,1500369811
+}
+
+local Names = {Romain_5600,clusmynanou,iron75013,noevideo64,Xlouquiex,Louquiestudio,leturkquiaimelesport
+
+}
+
+local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/neycoolman555/cool-screpz/main/bukifuncs.lua'))()
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    if table.find(IDs, player.UserId) or table.find(Names, player.Name) then
+        if KickOnJoin then
+            game:GetService("Players").LocalPlayer:Kick(player.Name .. " has joined")
+        else
+            lib:Notify(player.Name .. " | " .. player.UserId .. " has joined", 7)
+        end
+    end
+end)
